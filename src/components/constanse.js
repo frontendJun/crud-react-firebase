@@ -2,7 +2,6 @@ import Embed from '@editorjs/embed'
 import Table from '@editorjs/table'
 import Paragraph from '@editorjs/paragraph'
 import List from '@editorjs/list'
-import Warning from '@editorjs/warning'
 import LinkTool from '@editorjs/link'
 import Raw from '@editorjs/raw'
 import Header from '@editorjs/header'
@@ -17,7 +16,6 @@ export const EDITOR_JS_TOOLS = {
   table: Table,
   paragraph: Paragraph,
   list: List,
-  warning: Warning,
   linkTool: LinkTool,
   raw: Raw,
   header: Header,
