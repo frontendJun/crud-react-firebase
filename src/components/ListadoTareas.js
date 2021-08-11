@@ -7,7 +7,7 @@ const ListadoTareas = ({ tareas, edicion, setTareas, setEdicion, setTarea, gotTo
    
     <>
     
-        <h2>Listado de Tareas</h2>
+        <h2>List of Articles</h2>
         
         <hr />
             

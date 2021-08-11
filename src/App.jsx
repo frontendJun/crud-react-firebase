@@ -62,7 +62,7 @@ const App = props => {
 			<div className="row">
 				<div className="col-12">
 
-					<h1 className="text-center">Editor React - On  Firestore </h1>
+					<h1 className="text-center">Editor React For "Geeko" - On  Firestore </h1>
 
 					<hr />
 				</div>
@@ -78,13 +78,15 @@ const App = props => {
 						setUrl={setUrl}
 						gotToNews={gotToNews}
 					/>
+					{edicion.editando ?
 					<button
                     className={`btn btn-block  ${!edicion.editando ? 'btn-warning' : 'btn-dark'}`}
                     type="submit"
                     onClick={() => editarTarea(tarea)}
                 >
-                    {edicion.editando ? 'Editar' : 'Agregar'}
+                     'Go to' 
                 </button>
+				: null}
 				</div>
 
 				<div className="col-md-6 mt-5 mt-md-0">

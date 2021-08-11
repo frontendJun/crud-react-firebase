@@ -11,7 +11,7 @@ const Formulario = ({ tareas, tarea, edicion, setTarea, setTareas, setEdicion,se
         e.preventDefault();
 
         // Validar
-        if (!tarea.trim()) return setError('Escriba algo por favor...');
+        if (!tarea.trim()) return setError('Write some things please...');
         setError(null);
 
         // Generar nueva tarea
@@ -41,7 +41,7 @@ const Formulario = ({ tareas, tarea, edicion, setTarea, setTareas, setEdicion,se
         e.preventDefault();
 
         // Validar
-        if (!tarea.trim()) return setError('Escriba algo por favor...');
+        if (!tarea.trim()) return setError('Write some things please...');
         setError(null);
 
 
@@ -81,7 +81,7 @@ const Formulario = ({ tareas, tarea, edicion, setTarea, setTareas, setEdicion,se
 
     return (
         <>
-            <h2>{edicion.editando ? 'Editar Tarea' : 'Agregar Tarea'}</h2>
+            <h2>{edicion.editando ? 'Edit Article' : 'Create Article'}</h2>
 
             <hr />
 
@@ -93,7 +93,7 @@ const Formulario = ({ tareas, tarea, edicion, setTarea, setTareas, setEdicion,se
 
                 <input
                     className="form-control mt-1 mb-2"
-                    placeholder="Ingrese una tarea"
+                    placeholder="Tittle of your Article"
                     type="text"
                     value={tarea}
                     onChange={e => setTarea(e.target.value)}
@@ -103,7 +103,7 @@ const Formulario = ({ tareas, tarea, edicion, setTarea, setTareas, setEdicion,se
                     className={`btn btn-block ${edicion.editando ? 'btn-warning' : 'btn-dark'}`}
                     type="submit"
                 >
-                    {edicion.editando ? 'Editar' : 'Agregar'}
+                    {edicion.editando ? 'Edit' : 'Create'}
                 </button>
                 
             </form>

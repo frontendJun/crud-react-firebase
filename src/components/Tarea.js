@@ -56,14 +56,14 @@ const Tarea = ({ tarea, tareas, edicion, setTareas, setEdicion, setTarea, gotToN
                 className="btn btn-outline-danger btn-sm float-right"
                 onClick={() => eliminarTarea(id)}
             >
-                Eliminar
+                Delete
             </button>
 
             <button
                 className="btn btn-outline-warning btn-sm float-right mr-2"
                 onClick={() => editarTarea(tarea)}
             >
-                Editar
+                Edit
             </button>
         </>
     );

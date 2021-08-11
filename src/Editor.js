@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { firebase } from './firebase';
 import { useLocation } from 'react-router-dom';
-import Data from './components/data'
 
 
 
@@ -30,7 +29,11 @@ const Editor = () =>
 				docRef.get().then((doc) => {
           if (doc.exists) {
               setDat(doc.data());
+              const datam = doc.data();
+              const {blocks}=datam
               console.log(doc.data());
+
+              
           } else {
               // doc.data() will be undefined in this case
               console.log("No such document!");
@@ -58,19 +61,21 @@ const Editor = () =>
    const instanceRef = React.useRef(null);
 
    const handleSave = async e => {
-    
-    
-
-    console.log("savedData", );
-    console.log("save", )
-
-    
-  
-  
-  const db = firebase.firestore();
+      const db = firebase.firestore();
              await db.collection('tareas').doc(location.state.id).update(
               await instanceRef.current.save()
             );
+            const dataEdit =await instanceRef.current.save();
+     const result=await fetch('https://webhook.site/e2d9d8a9-e239-46cf-91dd-e939661c7e4b', {
+       method: 'POST',
+       mode: 'no-cors',
+       headers: {
+         'Accept': 'application/json',
+         'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({dataEdit})
+     })
+     console.log(result);
 
             
 
@@ -79,48 +84,32 @@ const Editor = () =>
           var docRef = db.collection("tareas").doc(location.state.id);
 
 
-
-          const block=dat;
-   
-    const showConsole =()=>{
-        console.log(dat)
-        
-       
-    }
-   let datas=db.collection("tareas").doc(location.state.id)
-   .onSnapshot((doc) => {
-      //  console.log("Current data: ", doc.data());
-   });
-   var meetings = dat.blocks;
-
-   for (var prop in meetings){
-     console.log(prop)
-   }
-
+   if (dat.length === 0) return (<>загрузка</>)
   return (
-    <>
+    <React.Fragment>
     
-        <div>News {location.state.id}</div>
+        
         <button onClick={handleSave}>Save!</button>
-        <button onClick={onClick}>Console</button>
+        
         
         
       <EditorJs  
       
       
+      
       instanceRef={instance => (instanceRef.current = instance)}
       
      
-      data={dat.blocks} 
+       
       i18n={{
         messages: {}
       }}
-      
+      data={dat}
       tools={EDITOR_JS_TOOLS}
       
         />;     
        
-    </>
+    </React.Fragment>
   );
 }
 
