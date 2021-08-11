@@ -1,6 +1,5 @@
 import EditorJs from 'react-editor-js'
 import { EDITOR_JS_TOOLS } from './components/constanse';
-import PropTypes from 'prop-types';
 import React, { useState, useEffect } from 'react';
 import { firebase } from './firebase';
 import { useLocation } from 'react-router-dom';
@@ -8,15 +7,14 @@ import { useLocation } from 'react-router-dom';
 
 
 const Editor = () =>   
-{ const [error, setError] = useState(null);
-  const [dat, setDat]=useState([])
+{const [dat, setDat]=useState([])
     let location=useLocation()
 
     const onClick = async () =>{ (await instanceRef.current.save())
           console.log([])
     };
     
-  // const [locc, setLoc ]=useState(location.pathname.substr(6))
+ 
 
 
 
@@ -29,8 +27,6 @@ const Editor = () =>
 				docRef.get().then((doc) => {
           if (doc.exists) {
               setDat(doc.data());
-              const datam = doc.data();
-              const {blocks}=datam
               console.log(doc.data());
 
               
@@ -50,9 +46,7 @@ const Editor = () =>
 
 			}
 
-      const timer = setTimeout(() => {
-        const chesk = false
-      }, 5000);
+      
     
 		})();
 
