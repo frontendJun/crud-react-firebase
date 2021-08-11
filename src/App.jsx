@@ -4,7 +4,6 @@ import { firebase } from './firebase';
 
 import ListadoTareas from './components/ListadoTareas';
 import Formulario from './components/Formulario';
-import Editor from './Editor';
 
 const App = props => {
 
@@ -14,7 +13,7 @@ const App = props => {
 		editando: false,
 		tarea: null
 	});
-	const[url, setUrl] = useState('');
+	
 
 	/*async function handleSave() {
 	const db = firebase.firestore();
