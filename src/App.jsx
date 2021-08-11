@@ -74,7 +74,7 @@ const App = props => {
 						setEdicion={setEdicion}
 						setTareas={setTareas}
 						setTarea={setTarea}
-						setUrl={setUrl}
+						
 						gotToNews={gotToNews}
 					/>
 					{edicion.editando ?
